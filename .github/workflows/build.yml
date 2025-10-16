@@ -105,10 +105,8 @@ jobs:
         args: --release --out dist --interpreter 3.10 3.11 3.12
         manylinux: auto
         before-script-linux: |
-          if [[ "${{ matrix.platform.target }}" == "aarch64" ]]; then
-            apt-get update
-            apt-get install -y libssl-dev pkg-config
-          fi
+          apt-get update
+          apt-get install -y libssl-dev pkg-config
 
     - name: Upload wheels
       uses: actions/upload-artifact@v4
